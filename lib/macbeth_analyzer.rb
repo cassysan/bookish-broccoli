@@ -1,8 +1,10 @@
 require 'nokogiri';
 require 'open-uri'
+
 url = "http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"
-file = File.open()
-document = Nokigirl::XML(file)
+xml_file = open(url).read
+# file = File.open()
+document = Nokogiri::XML(xml_file)
 
 document.root.xpath('speech').each do |speech|
   name        = speech.xpath('speaker').text
